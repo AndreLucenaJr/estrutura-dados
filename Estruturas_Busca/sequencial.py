@@ -1,10 +1,10 @@
 def busca_sequencial(lista, elemento):
     for i in range(len(lista)):
         if lista[i] == elemento:
-            return i  # Retorna o índice do elemento encontrado
-    return -1  # Retorna -1 se o elemento não for encontrado
+            return i 
+    return -1  
 
-# Exemplo de uso
+
 minha_lista = [10, 5, 8, 3, 2, 6, 1, 4, 7, 9]
 elemento_busca = 6
 indice = busca_sequencial(minha_lista, elemento_busca)

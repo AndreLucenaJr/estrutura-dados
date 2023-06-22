@@ -38,7 +38,6 @@ class BinarySearchTree:
         return self._search_recursive(value, current_node.right)
 
 
-# Exemplo de uso
 bst = BinarySearchTree()
 bst.insert(8)
 bst.insert(3)
@@ -50,7 +49,6 @@ bst.insert(4)
 bst.insert(7)
 bst.insert(13)
 
-# Buscando um valor na árvore
 search_value = 6
 result = bst.search(search_value)
 if result:

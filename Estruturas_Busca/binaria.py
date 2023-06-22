@@ -7,15 +7,15 @@ def busca_binaria(lista, elemento):
         valor_meio = lista[meio]
 
         if valor_meio == elemento:
-            return meio  # Retorna o índice do elemento encontrado
+            return meio  
         elif valor_meio < elemento:
             inicio = meio + 1
         else:
             fim = meio - 1
 
-    return -1  # Retorna -1 se o elemento não for encontrado
+    return -1 
 
-# Exemplo de uso
+
 minha_lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 elemento_busca = 3
 indice = busca_binaria(minha_lista, elemento_busca)
