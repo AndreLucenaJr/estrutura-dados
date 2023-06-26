@@ -2,21 +2,21 @@
 
 ## Ordenação
 
-- [ ] Ordenação por Troca
-- [ ] Bubble sort
-- [ ] Select sort
-- [ ] Insert sort
-- [ ] Merge sort
-- [ ] Quick sort
-- [ ] Heap sort
+- [x] Ordenação por Troca
+- [x] Bubble sort
+- [x] Select sort
+- [x] Insert sort
+- [x] Merge sort
+- [x] Quick sort
+- [x] Heap sort
 
 ## Busca
 
-- [ ] Busca sequencial
-- [ ] Busca binária
-- [ ] Árvore de busca binária
+- [x] Busca sequencial
+- [x] Busca binária
+- [x] Árvore de busca binária
 
 ## Árvore
 
-- [ ] Árvore binária
-- [ ] Árvore AVL
+- [x] Árvore binária
+- [x] Árvore AVL
