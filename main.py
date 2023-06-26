@@ -75,7 +75,7 @@ while True:
             performanceAnalysis(quick_sort, qnt)
         case "6":
             qnt = chooseQuantity()
-            performanceAnalysis(selectionSort, qnt)
+            performanceAnalysis(selection_sort, qnt)
         case "0":
             break
         case _:
