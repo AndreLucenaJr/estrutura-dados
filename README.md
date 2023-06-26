@@ -20,3 +20,8 @@
 
 - [ ] Árvore binária
 - [ ] Árvore AVL
+
+## Menu
+
+- [ ] Possibilidade de escolher se quer ordernar uma lista ao buscar
+- [ ] Possibilidade de escolher a posição do item na lista de busca

@@ -1,4 +1,4 @@
-lass No:
+class No:
     def __init__(self, data):
         self.data = data
         self.setaFilhos(None, None)
@@ -72,7 +72,7 @@ lass No:
         self.executaBalanco()
 
     def imprimeArvore(self, indent = 0):
-        print " " * indent + str(self.data)
+        print(" " * indent + str(self.data))
         if self.esquerda:
             self.esquerda.imprimeArvore(indent + 2)
         if self.direita:
