@@ -1,5 +1,4 @@
-./util/__pycache__
-./Organizacao_dados/__pycache__
-./Estruturas_Busca/__pycache__
-./Arvores/__pycache__
 .vscode
+/util/__pycache__/
+/Organizacao_dados/__pycache__/
+/Estruturas_Busca/__pycache__/

@@ -36,22 +36,3 @@ class BinarySearchTree:
         if value < current_node.value:
             return self._search_recursive(value, current_node.left)
         return self._search_recursive(value, current_node.right)
-
-
-bst = BinarySearchTree()
-bst.insert(8)
-bst.insert(3)
-bst.insert(10)
-bst.insert(1)
-bst.insert(6)
-bst.insert(14)
-bst.insert(4)
-bst.insert(7)
-bst.insert(13)
-
-search_value = 6
-result = bst.search(search_value)
-if result:
-    print(f'O valor {search_value} foi encontrado na árvore.')
-else:
-    print(f'O valor {search_value} não foi encontrado na árvore.')
