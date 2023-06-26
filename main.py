@@ -7,13 +7,17 @@ from Organizacao_dados.Quick_Sort import *
 from Organizacao_dados.Select_Sort import *
 from Estruturas_Busca.Arvore_AVL import *
 from Estruturas_Busca.arvoreBinaria import *
+from Estruturas_Busca.sequencial import *
+from Estruturas_Busca.binaria import *
 from util.DataEnum import *
 
 bst = BinarySearchTree()
 avl = AVLTree()
+arr = []
+
 
 def loadArr(data: Data):
-    with open(f'data/{data.value}.txt', 'r') as f:
+    with open(f'data/{data.value[1]}.txt', 'r') as f:
         list = []
         contents = f.read()
         arr = contents.split("\n")
@@ -33,10 +37,35 @@ def performanceSortAnalysis(func, qnt):
     final = time.time()
     print(final - start)
 
-def performanceSearchAnalysis(func, value):
+def performanceTreeSearchAnalysis(func, value):
     start = time.time()
 
     func(value)
+
+    final = time.time()
+    print(final - start)
+
+def performanceBinarySearchAnalysis(func, value, list):
+    start = time.time()
+
+    result = func(list, value)
+    if result != -1:
+        print(f'O valor {value} foi encontrado na árvore.')
+    else:
+        print(f'O valor {value} não foi encontrado na árvore.')
+
+    final = time.time()
+    print(final - start)
+
+def performanceSearchAnalysis(func, value, qnt):
+    list = loadArr(qnt)
+    start = time.time()
+
+    result = func(list, value)
+    if result != -1:
+        print(f'O valor {value} foi encontrado na árvore.')
+    else:
+        print(f'O valor {value} não foi encontrado na árvore.')
 
     final = time.time()
     print(final - start)
@@ -84,7 +113,6 @@ def chooseQuantity():
             return Data.CEM_MIL
         case "4":
             return Data.MILHAO
-
 
 def sortMethods():
     while True:
@@ -146,17 +174,25 @@ def searchMethod():
         option = input("Qual método de busca você quer utilizar?\t")
         match option:
             case "1":
-                None
+                qnt = chooseQuantity()
+                value = int(input("Qual valor você deseja pesquisar?\t"))
+                global arr
+                if len(arr) != qnt.value[0]:
+                    list = quick_sort(loadArr(qnt))
+                    arr = list
+                performanceBinarySearchAnalysis(busca_binaria, value, arr)
             case "2":
-                None
+                qnt = chooseQuantity()
+                value = int(input("Qual valor você deseja pesquisar?\t"))
+                performanceSearchAnalysis(busca_sequencial, value, qnt)
             case "3":
                 print("Lembrando: É preciso criar a árvore primeiro no método de ordenação")
                 value = int(input("Qual valor você deseja pesquisar?\t"))
-                performanceSearchAnalysis(searchBinaryTree, value)
+                performanceTreeSearchAnalysis(searchBinaryTree, value)
             case "4":
                 print("Lembrando: É preciso criar a árvore primeiro no método de ordenação")
                 value = int(input("Qual valor você deseja pesquisar?\t"))
-                performanceSearchAnalysis(searchAvlTree, value)
+                performanceTreeSearchAnalysis(searchAvlTree, value)
             case "0":
                 break
             case _:
