@@ -41,12 +41,4 @@ def heapSort(arr):
 	return arr
 
 
-arr = [12, 11, 13, 5, 6, 7, ]
-heapSort(arr)
-n = len(arr)
-
-for i in range(n):
-	print(arr[i])
-
-
 
