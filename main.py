@@ -210,6 +210,9 @@ if __name__ == '__main__':
                 sortMethods()
             case "2":
                 searchMethod()
+            case "3":
+                # //TODO comparar
+                None
             case "0":
                 break
             case _:
