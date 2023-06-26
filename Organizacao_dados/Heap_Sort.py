@@ -38,14 +38,15 @@ def heapSort(arr):
 	for i in range(n - 1, 0, -1):
 		(arr[i], arr[0]) = (arr[0], arr[i]) 
 		heapify(arr, i, 0)
-
+	return arr
 
 
 arr = [12, 11, 13, 5, 6, 7, ]
 heapSort(arr)
 n = len(arr)
-print('Sorted array is')
+
 for i in range(n):
 	print(arr[i])
+
 
 

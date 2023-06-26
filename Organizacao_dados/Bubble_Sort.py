@@ -6,3 +6,5 @@ def bubbleSort(alist):
                 alist[i] = alist[i+1]
                 alist[i+1] = temp
     return alist
+
+    return alist
