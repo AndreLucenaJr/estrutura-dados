@@ -9,6 +9,8 @@ from Estruturas_Busca.Arvore_AVL import *
 from Estruturas_Busca.arvoreBinaria import *
 from Estruturas_Busca.sequencial import *
 from Estruturas_Busca.binaria import *
+from Organizacao_dados.Fila import *
+from Organizacao_dados.Pilha import *
 from util.DataEnum import *
 from util.Performace_Analysis import *
 
@@ -45,6 +47,8 @@ def sortMethods():
         print("6 - Select sort")
         print("7 - Árvore binária")
         print("8 - Árvore AVL")
+        print("9 - Estrutura de Fila")
+        print("10 - Estrutura de Pilha")
         print("0 - Cancelar operação")
         option = input("Qual método de ordenação você quer utilizar?\t")
         match option:
@@ -79,6 +83,14 @@ def sortMethods():
             case "8":
                 qnt = chooseQuantity()
                 performanceSortAnalysis(createAvlTree, qnt)
+                continue
+            case "9":
+                qnt = chooseQuantity()
+                performanceSortAnalysis(createQueue, qnt)
+                continue
+            case "10":
+                qnt = chooseQuantity()
+                performanceSortAnalysis(createStack, qnt)
                 continue
             case "0":
                 break
@@ -140,6 +152,9 @@ def compareMethods():
                 performanceMethodAnalysis(heapSort, list.copy(), "do Heap Sort")
                 performanceMethodAnalysis(createBinaryTree, list.copy(), "da criação da Árvore Binária")
                 performanceMethodAnalysis(createAvlTree, list.copy(), "da criação da Árvore AVL")
+                performanceMethodAnalysis(createQueue, list.copy(), "da criação da Fila")
+                performanceMethodAnalysis(createStack, list.copy(), "da criação da Pilha")
+                
                 continue
             case "2":
                 qnt = chooseQuantity()
