@@ -35,7 +35,8 @@ def performanceSortAnalysis(func, qnt):
     func(list)
 
     final = time.time()
-    print(final - start)
+    print(f"## A operação durou {final - start} segundos. ##")
+
 
 def performanceTreeSearchAnalysis(func, value):
     start = time.time()
@@ -43,7 +44,8 @@ def performanceTreeSearchAnalysis(func, value):
     func(value)
 
     final = time.time()
-    print(final - start)
+    print(f"## A operação durou {final - start} segundos. ##")
+
 
 def performanceBinarySearchAnalysis(func, value, list):
     start = time.time()
@@ -55,7 +57,8 @@ def performanceBinarySearchAnalysis(func, value, list):
         print(f'O valor {value} não foi encontrado na árvore.')
 
     final = time.time()
-    print(final - start)
+    print(f"## A operação durou {final - start} segundos. ##")
+
 
 def performanceSearchAnalysis(func, value, qnt):
     list = loadArr(qnt)
@@ -68,17 +71,20 @@ def performanceSearchAnalysis(func, value, qnt):
         print(f'O valor {value} não foi encontrado na árvore.')
 
     final = time.time()
-    print(final - start)
+    print(f"## A operação durou {final - start} segundos. ##")
+
 
 def createBinaryTree(list):
     global bst
     for num in list:
         bst.insert(num)
 
+
 def createAvlTree(list):
     global avl
     for num in list:
         avl.insert(num)
+
 
 def searchBinaryTree(value):
     global bst
@@ -88,6 +94,7 @@ def searchBinaryTree(value):
     else:
         print(f'O valor {value} não foi encontrado na árvore.')
 
+
 def searchAvlTree(value):
     global avl
     result = avl.search(value)
@@ -96,7 +103,9 @@ def searchAvlTree(value):
     else:
         print(f'O valor {value} não foi encontrado na árvore.')
 
+
 def chooseQuantity():
+    print("=======================================================")
     print("Opções:")
     print("1 - MIL")
     print("2 - DEZ MIL")
@@ -114,8 +123,10 @@ def chooseQuantity():
         case "4":
             return Data.MILHAO
 
+
 def sortMethods():
     while True:
+        print("=======================================================")
         print("Opções:")
         print("1 - Bubble sort")
         print("2 - Heap sort")
@@ -165,12 +176,15 @@ def sortMethods():
             case _:
                 print("Comando não encontrado")
 
+
 def searchMethod():
     while True:
+        print("=======================================================")
         print("1 - Busca binária")
         print("2 - Busca sequencial")
         print("3 - Busca árvore binária")
         print("4 - Busca árvore AVL")
+        print("0 - Cancelar operação")
         option = input("Qual método de busca você quer utilizar?\t")
         match option:
             case "1":
@@ -198,21 +212,109 @@ def searchMethod():
             case _:
                 print("Comando não encontrado")
 
+
+def compareMethods():
+    while True:
+        print("=======================================================")
+        print("Opções:")
+        print("1 - Comparar métodos de ordenação")
+        print("2 - Comparar métodos de busca")
+        print("0 - Cancelar operação")
+        option = input("Qual método de comparação você deseja utilizar?\t")
+        match option:
+            case "1":
+                qnt = chooseQuantity()
+                value = int(input("Qual valor você deseja pesquisar?\t"))
+                list = loadArr(qnt)
+                start = time.time()
+                bubbleSort(list.copy())
+                end = time.time()
+                print(f"Tempo de execução do Bubble Sort: {end - start} segundos.")
+
+                start = time.time()
+                insertionSort(list.copy())
+                end = time.time()
+                print(f"Tempo de execução do Insertion Sort: {end - start} segundos.")
+
+                start = time.time()
+                selection_sort(list.copy())
+                end = time.time()
+                print(f"Tempo de execução do Selection Sort: {end - start} segundos. ")
+
+                start = time.time()
+                mergeSort(list.copy())
+                end = time.time()
+                print(f"Tempo de execução do Merge Sort: {end - start} segundos. ")
+
+                start = time.time()
+                quick_sort(list.copy())
+                end = time.time()
+                print(f"Tempo de execução do Quick Sort: {end - start} segundos. ")
+
+                start = time.time()
+                heapSort(list.copy())
+                end = time.time()
+                print(f"Tempo de execução do Heap Sort: {end - start} segundos. ")
+
+                start = time.time()
+                createBinaryTree(list.copy())
+                end = time.time()
+                print(f"Tempo de execução da criação da Árvore Binária: {end - start} segundos. ")
+
+                start = time.time()
+                createAvlTree(list.copy())
+                end = time.time()
+                print(f"Tempo de execução da criação da Árvore AVL: {end - start} segundos. ")
+
+                continue
+            case "2":
+                qnt = chooseQuantity()
+                value = int(input("Qual valor você deseja pesquisar?\t"))
+                list = quick_sort(loadArr(qnt))
+                start = time.time()
+                busca_binaria(list.copy(), value)
+                end = time.time()
+                print(f"Tempo de execução da Busca Binária: {end - start} segundos. ")
+
+                start = time.time()
+                busca_sequencial(list.copy(), value)
+                end = time.time()
+                print(f"Tempo de execução da Busca Sequencial: {end - start} segundos. ")
+
+                createBinaryTree(list.copy())
+                start = time.time()
+                searchBinaryTree(value)
+                end = time.time()
+                print(f"Tempo de execução da busca na Árvore Binária: {end - start} segundos. ")
+
+                createAvlTree(list.copy())
+                start = time.time()
+                searchAvlTree(value)
+                end = time.time()
+                print(f"Tempo de execução da busca na Árvore AVL: {end - start} segundos. ")
+
+                continue
+            case "0":
+                break
+            case _:
+                print("Comando não encontrado")
+
+
 if __name__ == '__main__':
     while True:
+        print("=======================================================")
         print("1 - Ordenação")
         print("2 - Busca")
+        print("3 - Comparação")
         print("0 - Cancelar operação")
         option = input("Qual método você deseja?\t")
-
         match option:
             case "1":
                 sortMethods()
             case "2":
                 searchMethod()
             case "3":
-                # //TODO comparar
-                None
+                compareMethods()
             case "0":
                 break
             case _:
