@@ -96,3 +96,18 @@ class AVLTree:
         self._print_tree(node.left)
         print(node.value, end=" ")
         self._print_tree(node.right)
+
+avl = AVLTree()
+
+def createAvlTree(list):
+    global avl
+    for num in list:
+        avl.insert(num)
+
+def searchAvlTree(value):
+    global avl
+    result = avl.search(value)
+    if result:
+        print(f'O valor {value} foi encontrado na árvore.')
+    else:
+        print(f'O valor {value} não foi encontrado na árvore.')
