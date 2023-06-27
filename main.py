@@ -190,6 +190,9 @@ def compareMethods():
 
 
 if __name__ == '__main__':
+    print("||||||||||")
+    print("BEM VINDO!")
+    print("||||||||||")
     while True:
         print("=======================================================")
         print("1 - Ordenação")
