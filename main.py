@@ -10,99 +10,9 @@ from Estruturas_Busca.arvoreBinaria import *
 from Estruturas_Busca.sequencial import *
 from Estruturas_Busca.binaria import *
 from util.DataEnum import *
+from util.Performace_Analysis import *
 
-bst = BinarySearchTree()
-avl = AVLTree()
 arr = []
-
-
-def loadArr(data: Data):
-    with open(f'data/{data.value[1]}.txt', 'r') as f:
-        list = []
-        contents = f.read()
-        arr = contents.split("\n")
-        arr.pop()
-        for num in arr:
-            list.append(int(num))
-        return list
-
-
-def performanceSortAnalysis(func, qnt):
-    list = loadArr(qnt)
-
-    start = time.time()
-
-    func(list)
-
-    final = time.time()
-    print(f"## A operação durou {final - start} segundos. ##")
-
-
-def performanceTreeSearchAnalysis(func, value):
-    start = time.time()
-
-    func(value)
-
-    final = time.time()
-    print(f"## A operação durou {final - start} segundos. ##")
-
-
-def performanceBinarySearchAnalysis(func, value, list):
-    start = time.time()
-
-    result = func(list, value)
-    if result != -1:
-        print(f'O valor {value} foi encontrado na árvore.')
-    else:
-        print(f'O valor {value} não foi encontrado na árvore.')
-
-    final = time.time()
-    print(f"## A operação durou {final - start} segundos. ##")
-
-
-def performanceSearchAnalysis(func, value, qnt):
-    list = loadArr(qnt)
-    start = time.time()
-
-    result = func(list, value)
-    if result != -1:
-        print(f'O valor {value} foi encontrado na árvore.')
-    else:
-        print(f'O valor {value} não foi encontrado na árvore.')
-
-    final = time.time()
-    print(f"## A operação durou {final - start} segundos. ##")
-
-
-def createBinaryTree(list):
-    global bst
-    for num in list:
-        bst.insert(num)
-
-
-def createAvlTree(list):
-    global avl
-    for num in list:
-        avl.insert(num)
-
-
-def searchBinaryTree(value):
-    global bst
-    result = bst.search(value)
-    if result:
-        print(f'O valor {value} foi encontrado na árvore.')
-    else:
-        print(f'O valor {value} não foi encontrado na árvore.')
-
-
-def searchAvlTree(value):
-    global avl
-    result = avl.search(value)
-    if result:
-        print(f'O valor {value} foi encontrado na árvore.')
-    else:
-        print(f'O valor {value} não foi encontrado na árvore.')
-
 
 def chooseQuantity():
     print("=======================================================")
@@ -122,7 +32,6 @@ def chooseQuantity():
             return Data.CEM_MIL
         case "4":
             return Data.MILHAO
-
 
 def sortMethods():
     while True:
@@ -176,7 +85,6 @@ def sortMethods():
             case _:
                 print("Comando não encontrado")
 
-
 def searchMethod():
     while True:
         print("=======================================================")
@@ -212,7 +120,6 @@ def searchMethod():
             case _:
                 print("Comando não encontrado")
 
-
 def compareMethods():
     while True:
         print("=======================================================")
@@ -224,48 +131,15 @@ def compareMethods():
         match option:
             case "1":
                 qnt = chooseQuantity()
-                value = int(input("Qual valor você deseja pesquisar?\t"))
                 list = loadArr(qnt)
-                start = time.time()
-                bubbleSort(list.copy())
-                end = time.time()
-                print(f"Tempo de execução do Bubble Sort: {end - start} segundos.")
-
-                start = time.time()
-                insertionSort(list.copy())
-                end = time.time()
-                print(f"Tempo de execução do Insertion Sort: {end - start} segundos.")
-
-                start = time.time()
-                selection_sort(list.copy())
-                end = time.time()
-                print(f"Tempo de execução do Selection Sort: {end - start} segundos. ")
-
-                start = time.time()
-                mergeSort(list.copy())
-                end = time.time()
-                print(f"Tempo de execução do Merge Sort: {end - start} segundos. ")
-
-                start = time.time()
-                quick_sort(list.copy())
-                end = time.time()
-                print(f"Tempo de execução do Quick Sort: {end - start} segundos. ")
-
-                start = time.time()
-                heapSort(list.copy())
-                end = time.time()
-                print(f"Tempo de execução do Heap Sort: {end - start} segundos. ")
-
-                start = time.time()
-                createBinaryTree(list.copy())
-                end = time.time()
-                print(f"Tempo de execução da criação da Árvore Binária: {end - start} segundos. ")
-
-                start = time.time()
-                createAvlTree(list.copy())
-                end = time.time()
-                print(f"Tempo de execução da criação da Árvore AVL: {end - start} segundos. ")
-
+                performanceMethodAnalysis(bubbleSort, list.copy(), "do Bubble Sort")
+                performanceMethodAnalysis(insertionSort, list.copy(), "do Insertion Sort")
+                performanceMethodAnalysis(selection_sort, list.copy(), "do Select Sort")
+                performanceMethodAnalysis(mergeSort, list.copy(), "do Merge Sort")
+                performanceMethodAnalysis(quick_sort, list.copy(), "do Quick Sort")
+                performanceMethodAnalysis(heapSort, list.copy(), "do Heap Sort")
+                performanceMethodAnalysis(createBinaryTree, list.copy(), "da criação da Árvore Binária")
+                performanceMethodAnalysis(createAvlTree, list.copy(), "da criação da Árvore AVL")
                 continue
             case "2":
                 qnt = chooseQuantity()

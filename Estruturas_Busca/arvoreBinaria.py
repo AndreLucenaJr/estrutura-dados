@@ -36,3 +36,18 @@ class BinarySearchTree:
         if value < current_node.value:
             return self._search_recursive(value, current_node.left)
         return self._search_recursive(value, current_node.right)
+    
+bst = BinarySearchTree()
+
+def createBinaryTree(list):
+    global bst
+    for num in list:
+        bst.insert(num)
+
+def searchBinaryTree(value):
+    global bst
+    result = bst.search(value)
+    if result:
+        print(f'O valor {value} foi encontrado na árvore.')
+    else:
+        print(f'O valor {value} não foi encontrado na árvore.')
